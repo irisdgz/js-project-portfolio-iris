@@ -1,55 +1,86 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Github, Globe } from 'lucide-react';
 
-export default function ProjectsSection({ list }) {
-  // SÄKERHETSSPÄRR: Om listan är tom eller saknas, visa ingenting (eller en laddar-text)
-  if (!list || list.length === 0) {
-    return (
-      <section className="py-24 bg-slate-50 text-center text-slate-500">
-        <p>No projects loaded yet...</p>
-      </section>
-    );
+const Section = styled.section`
+  padding: 80px 20px;
+  background: #fdfdfd;
+`;
+const Title = styled.h2`
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 60px;
+`;
+const ProjectContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+`;
+const Article = styled.article`
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  /* Flip every second item */
+  &:nth-child(even) {
+    flex-direction: row-reverse;
   }
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+  }
+`;
+const Image = styled.img`
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 15px 15px 0px 0px #eee;
+`;
+const Content = styled.div`
+  flex: 1;
+`;
+const Tag = styled.span`
+  background: #eee;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+`;
+const Button = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f2f2f2;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-right: 10px;
+  &:hover { background: #000; color: #fff; }
+`;
 
+export default function ProjectsSection({ list }) {
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16">Featured Projects</h2>
-        
-        <div className="flex flex-col gap-24">
-          {list.map((project, index) => (
-            <article key={project.id} className={`flex flex-col md:flex-row gap-12 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-              
-              {/* Bild */}
-              <div className="w-full md:w-1/2 rounded-lg overflow-hidden shadow-lg aspect-[4/3]">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+    <Section>
+      <Title>Featured Projects</Title>
+      <ProjectContainer>
+        {list.map(project => (
+          <Article key={project.id}>
+            <Image src={project.image} alt={project.title} />
+            <Content>
+              <h3 style={{fontSize: '2rem', marginBottom: '10px'}}>{project.title}</h3>
+              <p style={{marginBottom: '10px'}}>{project.description}</p>
+              <div style={{marginBottom: '20px'}}>
+                 {project.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
               </div>
-
-              {/* Text */}
-              <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
-                <h3 className="text-3xl font-bold">{project.title}</h3>
-                <p className="text-slate-600 text-lg">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="bg-slate-200 text-slate-600 px-2 py-1 rounded text-xs font-bold uppercase">{tag}</span>
-                  ))}
-                </div>
-
-                <div className="pt-4 flex gap-4 justify-center md:justify-start">
-                   <a href={project.github} className="flex gap-2 items-center bg-slate-200 px-6 py-3 rounded-full font-bold text-sm uppercase hover:bg-slate-300">
-                     <Github size={18} /> Code
-                   </a>
-                   <a href={project.netlify} className="flex gap-2 items-center bg-black text-white px-6 py-3 rounded-full font-bold text-sm uppercase hover:bg-slate-800">
-                     <Globe size={18} /> Live
-                   </a>
-                </div>
-              </div>
-
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+              <Button href={project.github}><Github size={16}/> Code</Button>
+              <Button href={project.netlify}><Globe size={16}/> Live</Button>
+            </Content>
+          </Article>
+        ))}
+      </ProjectContainer>
+    </Section>
   );
 }

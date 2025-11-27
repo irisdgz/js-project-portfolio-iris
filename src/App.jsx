@@ -1,23 +1,29 @@
 import React from 'react';
+import { GlobalStyle } from './GlobalStyles'; 
 
-// Vi importerar komponenterna från mappen vi skapade
+// Import Components
 import HeroSection from './components/HeroSection';
+import TechSection from './components/TechSection';
 import ProjectsSection from './components/ProjectsSection';
+import SkillsSection from './components/SkillsSection';
+import Footer from './components/Footer';
 
-// Vi importerar datan från data-mappen
-import { userData, projects } from './data/portfolioData';
 
-export default function App() {
+// Import Data
+import { userData, techSkills, projects, skillsCategories, articles } from './data/portfolioData';
+
+function App() {
   return (
-    <div className="font-sans text-slate-900">
+    <>
+      <GlobalStyle /> 
       
-      {/* Vi skickar datan till komponenterna */}
       <HeroSection user={userData} />
+      <TechSection tech={techSkills} />
       <ProjectsSection list={projects} />
-      
-      <footer className="bg-black text-white py-12 text-center">
-        <p>&copy; 2025 {userData.name}</p>
-      </footer>
-    </div>
+      <SkillsSection categories={skillsCategories} />
+      <Footer user={userData} />
+    </>
   );
 }
+
+export default App;

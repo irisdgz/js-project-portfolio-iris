@@ -1,35 +1,72 @@
 import React from 'react';
-import { Github, Globe, Linkedin } from 'lucide-react';
+import styled from 'styled-components';
+
+const Section = styled.header`
+  padding: 100px 20px;
+  text-align: center;
+  background: white;
+`;
+
+const SmallHeading = styled.p`
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 15px;
+`;
+
+const Name = styled.h1`
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #000;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+`;
+
+const ProfileImg = styled.img`
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 30px;
+`;
+
+// 👇 This styles the "intro" (Bold text)
+const MainIntro = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 700;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  line-height: 1.4;
+`;
+
+// 👇 This styles the "subIntro" (Lighter text)
+const SubText = styled.p`
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+`;
 
 export default function HeroSection({ user }) {
-  // SÄKERHETSSPÄRR: Om 'user' saknas (är undefined), visa ingenting istället för att krascha.
-  if (!user) {
-    return null; // Eller returnera <div>Loading...</div> om du föredrar
-  }
-
   return (
-    <header className="py-20 md:py-32 bg-white text-center">
-      <div className="max-w-6xl mx-auto px-6">
-        
-        {/* Profilbild */}
-        <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl">
-          <img src={user.profileImage} alt={user.name} className="w-full h-full object-cover" />
-        </div>
-
-        {/* Text */}
-        <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Portfolio</h3>
-        <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6">{user.name}</h1>
-        <p className="text-xl text-slate-600 font-light max-w-2xl mx-auto mb-8">{user.intro}</p>
-
-        {/* Ikoner - Vi kollar att user.socials finns innan vi renderar */}
-        {user.socials && (
-          <div className="flex justify-center gap-6 text-slate-400">
-            {user.socials.linkedin && <a href={user.socials.linkedin}><Linkedin size={32} /></a>}
-            {user.socials.github && <a href={user.socials.github}><Github size={32} /></a>}
-            {user.socials.stackoverflow && <a href={user.socials.stackoverflow}><Globe size={32} /></a>}
-          </div>
-        )}
-      </div>
-    </header>
+    <Section>
+      <SmallHeading>Hi there, I'm</SmallHeading>
+      
+      <Name>{user.name}</Name>
+      
+      <ProfileImg src={user.profileImage} alt={user.name} />
+      
+      {/* 1. The Bold Intro */}
+      <MainIntro>{user.intro}</MainIntro>
+      
+      {/* 2. The Lighter Sub-Intro */}
+      <SubText>{user.subIntro}</SubText>
+    </Section>
   );
 }
