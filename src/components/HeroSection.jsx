@@ -35,7 +35,7 @@ const ProfileImg = styled.img`
   margin: 0 auto 30px;
 `;
 
-// 👇 This styles the "intro" (Bold text)
+// This styles the "intro" (Bold text)
 const MainIntro = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
@@ -44,7 +44,7 @@ const MainIntro = styled.h2`
   line-height: 1.4;
 `;
 
-// 👇 This styles the "subIntro" (Lighter text)
+// This styles the "subIntro" (Lighter text)
 const SubText = styled.p`
   font-size: 1.1rem;
   color: #666;

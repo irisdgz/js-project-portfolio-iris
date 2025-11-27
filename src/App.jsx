@@ -10,7 +10,8 @@ import Footer from './components/Footer';
 
 
 // Import Data
-import { userData, techSkills, projects, skillsCategories, articles } from './data/portfolioData';
+
+import { userData, techSkills, projects, skillsCategories } from './data/portfolioData';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
       <HeroSection user={userData} />
       <TechSection tech={techSkills} />
       <ProjectsSection list={projects} />
+      
+      {/* ❌ Removed: <ArticlesSection ... /> */}
+      
       <SkillsSection categories={skillsCategories} />
       <Footer user={userData} />
     </>
