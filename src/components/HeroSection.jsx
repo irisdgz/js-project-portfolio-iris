@@ -10,7 +10,7 @@ const Section = styled.header`
 const SmallHeading = styled.p`
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 0.8rem;
+  font-size: 3 rem;
   font-weight: 700;
   color: #555;
   margin-bottom: 15px;
@@ -28,8 +28,8 @@ const Name = styled.h1`
 `;
 
 const ProfileImg = styled.img`
-  width: 180px;
-  height: 180px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 30px;
