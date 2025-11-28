@@ -20,7 +20,8 @@ export default function Footer({ user }) {
   return (
     <FooterWrap>
       <h2 style={{fontSize: '3rem', marginBottom: '40px'}}>Let's Talk</h2>
-      <ProfilePic src={user.profileImage} />
+      <ProfilePic src={user.profileImage} 
+                  alt={`${user.name}'s profile photo`}/> //accessibility
       <h3>{user.name}</h3>
       <p>{user.phone}</p>
       <p>{user.email}</p>

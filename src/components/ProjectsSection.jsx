@@ -77,7 +77,7 @@ export default function ProjectsSection({ list }) {
             {/* ACCESSIBLE ALT TEXT */}
             <Image 
               src={project.image} 
-              alt={`Screenshot of ${project.title}`} 
+              alt={`Screenshot of ${project.title}`} // accessibility
             />
 
             <Content>
@@ -98,14 +98,14 @@ export default function ProjectsSection({ list }) {
               {/* ARIA LABELS FOR ICON BUTTONS */}
               <Button 
                 href={project.github} 
-                aria-label={`View ${project.title} code on GitHub`}
+                aria-label={`View the source code for ${project.title} on GitHub`}
               >
                 <Github size={16} /> Code
               </Button>
 
               <Button 
                 href={project.netlify}
-                aria-label={`View live demo of ${project.title}`}
+                aria-label={`Open thelive demo for ${project.title}`}
               >
                 <Globe size={16} /> Live
               </Button>
