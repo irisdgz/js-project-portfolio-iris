@@ -1,6 +1,6 @@
-import React from 'react';            // React is needed to define components//
+import React from 'react';
 import styled from 'styled-components';
-import { GithubIcon, Globe } from 'lucide-react';
+import { Github, Globe } from 'lucide-react'; 
 
 const Section = styled.section`
   padding: 80px 20px;
@@ -23,10 +23,11 @@ const Article = styled.article`
   display: flex;
   gap: 40px;
   align-items: center;
-  /* Flip every second item */
+
   &:nth-child(even) {
     flex-direction: row-reverse;
   }
+
   @media (max-width: 768px) {
     flex-direction: column !important;
   }
@@ -58,26 +59,57 @@ const Button = styled.a`
   font-weight: 600;
   margin-top: 20px;
   margin-right: 10px;
-  &:hover { background: #000; color: #fff; }
+
+  &:hover {
+    background: #000;
+    color: #fff;
+  }
 `;
 
-export default function ProjectsSection({ list }) {   // The Input "list" is the array of projects from portfolioData.js//
+export default function ProjectsSection({ list }) {
   return (
     <Section>
       <Title>Featured Projects</Title>
       <ProjectContainer>
-        {list.map(project => (          //Assemblying each project, the loop goes through the "list" array//
-          <Article key={project.id}>    {/* The Component: <Article> is the styled container (the white box) that holds the project. key={project.id}: This is mandatory in React lists. 
-                                            React needs a unique ID for every item so it can track them if the list changes*/}
-            <Image src={project.image} alt={project.title} /> {/* // The Curly Braces { }: This is how we switch from HTML to JavaScript.*/}
+        {list.map(project => (
+          <Article key={project.id}>
+            
+            {/* ACCESSIBLE ALT TEXT */}
+            <Image 
+              src={project.image} 
+              alt={`Screenshot of ${project.title}`} 
+            />
+
             <Content>
-              <h3 style={{fontSize: '2rem', marginBottom: '10px'}}>{project.title}</h3>
-              <p style={{marginBottom: '10px'}}>{project.description}</p>
-              <div style={{marginBottom: '20px'}}>
-                 {project.tags.map(tag => <Tag key={tag}>{tag}</Tag>)} {/* Each project has its own list of tags (e.g., ["HTML", "CSS"], run a mini-loop here to turn those strings into small grey <Tag> buttons*/}
+              <h3 style={{ fontSize: '2rem', marginBottom: '10px' }}>
+                {project.title}
+              </h3>
+
+              <p style={{ marginBottom: '10px' }}>
+                {project.description}
+              </p>
+
+              <div style={{ marginBottom: '20px' }}>
+                {project.tags.map(tag => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
               </div>
-              <Button href={project.github}><Github size={16}/> Code</Button> {/* The Buttons: Live and Code buttons with icons from lucide-react*/}
-              <Button href={project.netlify}><Globe size={16}/> Live</Button>
+
+              {/* ARIA LABELS FOR ICON BUTTONS */}
+              <Button 
+                href={project.github} 
+                aria-label={`View ${project.title} code on GitHub`}
+              >
+                <Github size={16} /> Code
+              </Button>
+
+              <Button 
+                href={project.netlify}
+                aria-label={`View live demo of ${project.title}`}
+              >
+                <Globe size={16} /> Live
+              </Button>
+
             </Content>
           </Article>
         ))}
@@ -85,4 +117,3 @@ export default function ProjectsSection({ list }) {   // The Input "list" is the
     </Section>
   );
 }
-
