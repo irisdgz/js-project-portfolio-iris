@@ -3,8 +3,8 @@
 export const userData = {
   name: "Iris de Gracia Zhang",
   role: "Creative Frontend Developer",
-  intro: "Creative Frontend Developer with a background in Human Resources and Public Affairs.", // Fixed typo "Hurman"
-  subIntro: "Frontend Developer bringing a strong background in communication and organization to the tech world. I build bridges between design and code with a focus on user experience.",
+  intro: "Creative Frontend Developer with a background in Human Resources and Public Affairs.", 
+  subIntro: "bringing a strong background in communication and organization to the tech world. I build bridges between design and code with a focus on user experience.",
   email: "iris.dgz@icloud.com",
   phone: "+46(0)73 707 26 56",
   profileImage: "/Alice.jpg", 
@@ -43,11 +43,11 @@ export const projects = [
 export const skillsCategories = [
   {
     title: "Code",
-    skills: ["JavaScript ES6", "React", "HTML5", "CSS3", "Styled Components"]
+    skills: ["JavaScript ES6", "React", "HTML5", "CSS3", "Styled Components", "Node.js"]
   },
   {
     title: "Toolbox",
-    skills: ["Figma", "Postman", "Git & GitHub", "VS Code", "Slack"]
+    skills: ["Figma", "VS Code", "Git & GitHub", "Slack & Zoom", "Netlify"]
   },
   {
     title: "Upcoming Skills",

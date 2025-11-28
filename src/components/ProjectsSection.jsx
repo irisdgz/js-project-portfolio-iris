@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react';            // React is needed to define components//
 import styled from 'styled-components';
-import { Github, Globe } from 'lucide-react';
+import { GithubIcon, Globe } from 'lucide-react';
 
 const Section = styled.section`
   padding: 80px 20px;
@@ -61,21 +61,22 @@ const Button = styled.a`
   &:hover { background: #000; color: #fff; }
 `;
 
-export default function ProjectsSection({ list }) {
+export default function ProjectsSection({ list }) {   // The Input "list" is the array of projects from portfolioData.js//
   return (
     <Section>
       <Title>Featured Projects</Title>
       <ProjectContainer>
-        {list.map(project => (
-          <Article key={project.id}>
-            <Image src={project.image} alt={project.title} />
+        {list.map(project => (          //Assemblying each project, the loop goes through the "list" array//
+          <Article key={project.id}>    {/* The Component: <Article> is the styled container (the white box) that holds the project. key={project.id}: This is mandatory in React lists. 
+                                            React needs a unique ID for every item so it can track them if the list changes*/}
+            <Image src={project.image} alt={project.title} /> {/* // The Curly Braces { }: This is how we switch from HTML to JavaScript.*/}
             <Content>
               <h3 style={{fontSize: '2rem', marginBottom: '10px'}}>{project.title}</h3>
               <p style={{marginBottom: '10px'}}>{project.description}</p>
               <div style={{marginBottom: '20px'}}>
-                 {project.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                 {project.tags.map(tag => <Tag key={tag}>{tag}</Tag>)} {/* Each project has its own list of tags (e.g., ["HTML", "CSS"], run a mini-loop here to turn those strings into small grey <Tag> buttons*/}
               </div>
-              <Button href={project.github}><Github size={16}/> Code</Button>
+              <Button href={project.github}><Github size={16}/> Code</Button> {/* The Buttons: Live and Code buttons with icons from lucide-react*/}
               <Button href={project.netlify}><Globe size={16}/> Live</Button>
             </Content>
           </Article>
@@ -84,3 +85,4 @@ export default function ProjectsSection({ list }) {
     </Section>
   );
 }
+

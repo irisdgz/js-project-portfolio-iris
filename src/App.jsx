@@ -21,9 +21,6 @@ function App() {
       <HeroSection user={userData} />
       <TechSection tech={techSkills} />
       <ProjectsSection list={projects} />
-      
-      {/* ❌ Removed: <ArticlesSection ... /> */}
-      
       <SkillsSection categories={skillsCategories} />
       <Footer user={userData} />
     </>

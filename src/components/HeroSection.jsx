@@ -56,7 +56,7 @@ const SubText = styled.p`
 export default function HeroSection({ user }) {
   return (
     <Section>
-      <SmallHeading>Hi there, I'm</SmallHeading>
+      <SmallHeading>Nihao, I'm</SmallHeading>
       
       <Name>{user.name}</Name>
       
