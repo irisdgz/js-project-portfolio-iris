@@ -7,11 +7,10 @@ import TechSection from './components/TechSection';
 import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
 import Footer from './components/Footer';
-
+import ArticlesSection from './components/ArticlesSection'; 
 
 // Import Data
-
-import { userData, techSkills, projects, skillsCategories } from './data/portfolioData';
+import { userData, techSkills, projects, skillsCategories, articles } from './data/portfolioData';
 
 function App() {
   return (
@@ -21,8 +20,10 @@ function App() {
       <HeroSection user={userData} />
       <TechSection tech={techSkills} />
       <ProjectsSection list={projects} />
+      <ArticlesSection articles={articles} /> 
       <SkillsSection categories={skillsCategories} />
       <Footer user={userData} />
+    
     </>
   );
 }

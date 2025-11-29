@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Linkedin, Github } from "lucide-react";
 
 const FooterWrap = styled.footer`
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
   padding: 80px 20px;
   text-align: center;
 `;
@@ -27,10 +27,10 @@ export default function Footer({ user }) {
       <p>{user.email}</p>
 
       <div style={{display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '30px'}}>
-        <a href={user.socials.linkedin} style={{color: 'black'}}>
+        <a href={user.socials.linkedin} style={{color: 'white'}}>
           <Linkedin />
         </a>
-        <a href={user.socials.github} style={{color: 'black'}}>
+        <a href={user.socials.github} style={{color: 'white'}}>
           <Github />
         </a>
       </div>

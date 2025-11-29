@@ -43,7 +43,7 @@ export const projects = [
 export const skillsCategories = [
   {
     title: "Code",
-    skills: ["JavaScript ES6", "React", "HTML5", "CSS3", "Styled Components", "Node.js"]
+    skills: ["JavaScript ES6", "React", "HTML5", "CSS3", "Styled Components", "Node.js", "TypeScript"]
   },
   {
     title: "Toolbox",
@@ -52,5 +52,18 @@ export const skillsCategories = [
   {
     title: "Upcoming Skills",
     skills: ["Agile", "Design Lead", "Branding", "Strategy"]
+  }
+];
+
+
+export const articles = [
+  {
+    id: 1,
+    title: "How to stop being scared: Learning to love code",
+    description: "The first step is understanding that code is just a tool to solve problems.",
+    date: "June 2023",
+    // You can use a placeholder image from the internet, or put one in your public folder
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+    link: "https://medium.com" // You can add your actual blog link here later
   }
 ];
