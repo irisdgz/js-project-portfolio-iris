@@ -10,7 +10,7 @@ const Section = styled.header`
 const SmallHeading = styled.p`
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 3 rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #555;
   margin-bottom: 15px;

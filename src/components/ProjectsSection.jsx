@@ -6,12 +6,14 @@ const Section = styled.section`
   padding: 80px 20px;
   background: #fdfdfd;
 `;
+
 const Title = styled.h2`
   text-align: center;
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 60px;
 `;
+
 const ProjectContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
@@ -19,6 +21,7 @@ const ProjectContainer = styled.div`
   flex-direction: column;
   gap: 80px;
 `;
+
 const Article = styled.article`
   display: flex;
   gap: 40px;
@@ -32,14 +35,17 @@ const Article = styled.article`
     flex-direction: column !important;
   }
 `;
+
 const Image = styled.img`
   width: 100%;
   max-width: 400px;
   box-shadow: 15px 15px 0px 0px #eee;
 `;
+
 const Content = styled.div`
   flex: 1;
 `;
+
 const Tag = styled.span`
   background: #eee;
   padding: 4px 8px;
@@ -48,6 +54,7 @@ const Tag = styled.span`
   font-weight: bold;
   text-transform: uppercase;
 `;
+
 const Button = styled.a`
   display: inline-flex;
   align-items: center;
@@ -59,11 +66,26 @@ const Button = styled.a`
   font-weight: 600;
   margin-top: 20px;
   margin-right: 10px;
+  text-decoration: none;
 
   &:hover {
     background: #000;
     color: #fff;
   }
+`;
+
+
+const ProjectTitle = styled.h3`
+  font-size: 2rem;
+  margin-bottom: 10px;
+`;
+
+const ProjectDescription = styled.p`
+  margin-bottom: 10px;
+`;
+
+const TagsWrapper = styled.div`
+  margin-bottom: 20px;
 `;
 
 export default function ProjectsSection({ list }) {
@@ -73,29 +95,24 @@ export default function ProjectsSection({ list }) {
       <ProjectContainer>
         {list.map(project => (
           <Article key={project.id}>
-            
-            {/* ACCESSIBLE ALT TEXT */}
             <Image 
               src={project.image} 
-              alt={`Screenshot of ${project.title}`} // accessibility
+              alt={`Screenshot of ${project.title}`}
             />
 
             <Content>
-              <h3 style={{ fontSize: '2rem', marginBottom: '10px' }}>
-                {project.title}
-              </h3>
+              <ProjectTitle>{project.title}</ProjectTitle>
 
-              <p style={{ marginBottom: '10px' }}>
+              <ProjectDescription>
                 {project.description}
-              </p>
+              </ProjectDescription>
 
-              <div style={{ marginBottom: '20px' }}>
+              <TagsWrapper>
                 {project.tags.map(tag => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
-              </div>
+              </TagsWrapper>
 
-              {/* ARIA LABELS FOR ICON BUTTONS */}
               <Button 
                 href={project.github} 
                 aria-label={`View the source code for ${project.title} on GitHub`}
@@ -105,11 +122,10 @@ export default function ProjectsSection({ list }) {
 
               <Button 
                 href={project.netlify}
-                aria-label={`Open thelive demo for ${project.title}`}
+                aria-label={`Open the live demo for ${project.title}`}
               >
                 <Globe size={16} /> Live
               </Button>
-
             </Content>
           </Article>
         ))}
