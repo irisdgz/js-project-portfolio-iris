@@ -63,7 +63,7 @@ export const articles = [
     description: "When I started this bootcamp, I wasn’t sure what to expect. It’s been a mix of excitement, confusion, and small victories. I’m learning that coding isn’t just writing lines—it’s problem-solving, design, and trusting the process.",
     date: "Nov 2025",
     // Keep your image or use this coding-related one
-    image: "https://images.unsplash.com/photo-1455849318743-b2233052fcff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "my-words.jpg",
   
     link: "https://www.linkedin.com/in/iris-de-gracia-zhang-602797385/" 
   }
