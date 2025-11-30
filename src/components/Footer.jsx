@@ -9,6 +9,11 @@ const FooterWrap = styled.footer`
   text-align: center;
 `;
 
+const FooterTitle = styled.h2`
+  font-size: 3rem;
+  margin-bottom: 40px;
+`;
+
 const ProfilePic = styled.img`
   width: 80px;
   height: 80px;
@@ -16,24 +21,45 @@ const ProfilePic = styled.img`
   margin-bottom: 20px;
 `;
 
+const Socials = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+`;
+
+const SocialLink = styled.a`
+  color: #fff;
+  transition: opacity 0.2s ease;
+
+  }
+`;
+
 export default function Footer({ user }) {
   return (
     <FooterWrap>
-      <h2 style={{fontSize: '3rem', marginBottom: '40px'}}>Let's Talk</h2>
-      <ProfilePic src={user.profileImage} 
-                  alt={`${user.name}'s profile photo`}/> 
+      
+      <FooterTitle>Let's Talk</FooterTitle>
+
+      <ProfilePic 
+        src={user.profileImage} 
+        alt={`${user.name}'s profile photo`}
+      /> 
+
       <h3>{user.name}</h3>
       <p>{user.phone}</p>
       <p>{user.email}</p>
 
-      <div style={{display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '30px'}}>
-        <a href={user.socials.linkedin} style={{color: 'white'}}>
+      <Socials>
+        <SocialLink href={user.socials.linkedin} aria-label="LinkedIn profile">
           <Linkedin />
-        </a>
-        <a href={user.socials.github} style={{color: 'white'}}>
+        </SocialLink>
+
+        <SocialLink href={user.socials.github} aria-label="GitHub profile">
           <Github />
-        </a>
-      </div>
+        </SocialLink>
+      </Socials>
+
     </FooterWrap>
   );
 }

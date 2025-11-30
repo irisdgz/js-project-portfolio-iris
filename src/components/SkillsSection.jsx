@@ -21,7 +21,7 @@ const SkillCol = styled.div`
 `;
 
 const SkillTitle = styled.h3`
-  color: #aaa;
+  color: #000;
   text-transform: uppercase;
   font-size: 1rem;
   margin-bottom: 20px;
