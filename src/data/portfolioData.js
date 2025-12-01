@@ -9,9 +9,9 @@ export const userData = {
   phone: "+46(0)73 707 26 56",
   profileImage: "/Alice.jpg", 
   socials: {
-    linkedin: "https://www.linkedin.com/",
-    github: "https://github.com/",
-    stackoverflow: "https://stackoverflow.com/"
+    linkedin: "https://www.linkedin.com/in/iris-de-gracia-zhang-602797385/",
+    github: "https://github.com/irisdgz/",
+    
   }
 };
 
@@ -62,7 +62,6 @@ export const articles = [
     title: "My Bootcamp Journey: From Blank Screen to Real Interface",
     description: "When I started this bootcamp, I wasn’t sure what to expect. It’s been a mix of excitement, confusion, and small victories. I’m learning that coding isn’t just writing lines—it’s problem-solving, design, and trusting the process.",
     date: "Nov 2025",
-    // Keep your image or use this coding-related one
     image: "my-words.jpg",
   
     link: "https://www.linkedin.com/in/iris-de-gracia-zhang-602797385/" 
